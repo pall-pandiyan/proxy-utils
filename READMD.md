@@ -1,8 +1,6 @@
 # About this module
 
-This is a simple proxy module with a Proxy class which contains some required basic funtions.
-
-Proxy class contains functions like get a random proxy for a specific protocol (http or https), and update the proxy file.
+This is a simple proxy module with a Proxy class contains functions like get a random proxy for a specific protocol (http or https), and update the proxy file.
 
 ### Constructor arguments
 
