@@ -406,6 +406,9 @@ class Proxy:
         return proxy
 
 
-# Proxy().update_proxy_list()
-# print(Proxy().random_proxy("http"))
-print(Proxy().random_proxy_dict())
+if __name__ == "__main__":
+    Proxy().update_proxy_list()
+    print("Getting a random proxy:")
+    print(Proxy().random_proxy("http"))
+    print("Getting a random proxy dict:")
+    print(Proxy().random_proxy_dict())
