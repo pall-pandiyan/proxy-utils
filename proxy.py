@@ -5,6 +5,7 @@ import os
 import requests
 
 from random import randint
+from time import sleep
 
 current_dir = os.path.dirname(__file__)
 
@@ -378,6 +379,7 @@ class Proxy:
                 os.remove(self.proxy_update_file_paths[protocol])
             self.__generate_proxy_update_file(protocol)
             os.replace(self.proxy_update_file_paths[protocol], self.proxy_file_paths[protocol])
+        self.change_system_proxies()
 
 
     def random_proxy(self, protocol:str="https") -> str:
@@ -410,9 +412,13 @@ class Proxy:
         return proxy
 
 
+    def change_system_proxies(self) -> None:
+        """
+            change the current HTTP and HTTPS proxy to another random one.
+        """
+        os.environ["HTTP_PROXY"] = os.environ['http_proxy'] = self.random_proxy(protocol="http")
+        os.environ["HTTPS_PROXY"] = os.environ['https_proxy'] = self.random_proxy(protocol="https")
+
+
 if __name__ == "__main__":
     Proxy().update_proxy_list()
-    print("Getting a random proxy:")
-    print(Proxy().random_proxy("http"))
-    print("Getting a random proxy dict:")
-    print(Proxy().random_proxy_dict())
