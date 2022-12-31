@@ -15,14 +15,18 @@ class Proxy:
             proxy_file_name - defalut is 'proxy_list.txt'
             proxy_update_file_name - default is 'proxy_update_list.txt'
         
-        public functions:
-            random_proxy(protocols:tuple)
-                protocols - a tuple containing http and https or any one of them.
-                returns a dict with proxy or proxies of given protocols
-            
+        functions:
             update_proxy_list()
                 updates the proxy_list file with working proxies.
                 returns none
+            
+            random_proxy(protocol:str)
+                protocol - a str containing http or https.
+                returns a random proxy of given protocols.
+            
+            random_proxy_dict(protocols:tuple)
+                protocols - a tuple containing http or https or both.
+                returns a dict with proxy or proxies of given protocols.
     """
     proxy_list = [
         "23.170.248.146:3129",
